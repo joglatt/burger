@@ -26,8 +26,6 @@ function objToSql(ob) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-      // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-      // e.g. {sleepy: true} => ["sleepy=true"]
       arr.push(key + "=" + value);
     }
   }
@@ -37,8 +35,8 @@ function objToSql(ob) {
 }
 
 var orm = {
-  selectALL: function(table, cb) {
-    var queryString = "SELECT * FROM " + table + ";";
+  selectAll: function(table, cb) {
+    var queryString = `SELECT *FROM  ${table};`;
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -47,16 +45,18 @@ var orm = {
     });
   },
   insertOne: function(table, cols, vals, cb) {
-    var queryString = `INSERT INTO " + ${table} SET (${cols.toString()}) Values (${printQuestionMarks(vals.length)});`;
-    connection.query(queryString, function(err, result) {
+    var queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
+    console.log(queryString);
+    connection.query(queryString, vals, function(err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
-  updateONE: function(table,col, condition, cb) {
-    var queryString = `UPDATE ${table} SET ${objtoSQL(col)} WHERE ${condition} ;`;
+
+  updateOne: function(table, col, condition, cb) {
+    var queryString = `UPDATE ${table} SET ${objToSql(col)} WHERE ${condition}`;
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
