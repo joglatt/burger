@@ -1,14 +1,13 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
 
-require("dotenv").config();
 
 // Consider changing the connection to pool connection if there is time. In mysql npm
 var connection = mysql.createConnection({
-  host: process.env.host,
+  host: 'localhost',
   port: 3306,
-  user: process.env.user,
-  password: process.env.pass,
+  user: 'root',
+  password: '1337',
   database: "burger_db"
 });
 // connect

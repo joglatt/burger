@@ -3,7 +3,6 @@ var bodyParser = require("body-parser");
 var path = require("path");
 var exphbs = require("express-handlebars");
 var routes = require("./controllers/burgerController.js");
-require('dotenv').config()
 
 var PORT = process.env.PORT || 3000;
 
