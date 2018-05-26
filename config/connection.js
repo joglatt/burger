@@ -1,15 +1,18 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
+var connection;
 
-
-// Consider changing the connection to pool connection if there is time. In mysql npm
-var connection = mysql.createConnection({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: '1337',
-  database: "burger_db"
-});
+if (procces.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB.URL);
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "1337",
+    database: "burger_db"
+  });
+}
 // connect
 // Make connection.
 connection.connect(function(err) {
