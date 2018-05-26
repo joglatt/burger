@@ -1,24 +1,27 @@
-<h1>Burgers!</h1>
+<div id="container">
+  <img src="/assets/images/burger.png" alt="burger image" />
 
-<h2>Burgers that need to be eaten</h2>
 
-<ul>
-  {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=false}} {{/unless}} {{/each}}
-</ul>
+  <h2>Burgers that need to be eaten</h2>
 
-<h2>Fuel</h2>
+  <ul>
+    {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=false}} {{/unless}} {{/each}}
+  </ul>
 
-<ul>
-  {{#each burgers}} {{#if devoured}} {{> burgers/burger-block devoured=true}} {{/if}} {{/each}}
-</ul>
+  <h2>Fuel</h2>
 
-<h2>Cook A Burger</h2>
-<form class="create-form">
+  <ul>
+    {{#each burgers}} {{#if devoured}} {{> burgers/burger-block devoured=true}} {{/if}} {{/each}}
+  </ul>
 
-  <div class="form-group">
-    <label for="bu">Burger Name:</label>
-    <input type="text" id="bu" name="name">
-  </div>
+  <form class="create-form">
+    <h3>Cook A Burger</h3>
 
-  <button type="submit">Cook Burger</button>
-</form>
+    <div class="form-group">
+      <label for="bu">Burger Name:</label>
+      <input type="text" id="bu" name="name">
+    </div>
+
+    <button type="submit">Cook Burger</button>
+  </form>
+</div>

@@ -1,19 +1,51 @@
+body{
+  background:orange;
+}
+#container{
+  text-align:center;
+  width:70%;
+  border-radius: 1em;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) 
+}
+
 li {
   padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+  background: lightgray;
+  border:1px grey solid;
+  list-style-type: none;
 }
 
 .label {
   font-weight: bold;
 }
 
-.update-form {
-  padding: 5px;
-  margin: 5px;
-  background: aqua;
+.create-form {
+  /* padding: 5px; */
+  border: 2px solid black;
+  background: lightgray;
 }
 
 .form-group {
+  color: darkblue;
   margin-bottom: 5px;
+}
+
+h3 {
+  color: darkblue;
+}
+
+.digest, .eat-burger {
+  float:right;
+  font-weight:bold;
+  border: 2px darkslategrey solid;
+}
+img{
+  margin:auto;
+  height:500px;
+  width:550px;
 }
